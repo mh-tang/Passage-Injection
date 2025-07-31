@@ -24,7 +24,7 @@ pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.
 ### Prepare Data
 You can directly use our processed data files in the `datasets/` folder, which contain the top-10 retrieved passages for each question.
 
-If you want to retrieve passages by yourself, please follow the steps below.
+If you want to retrieve passages by yourself, please follow the steps below (adapted from [PRAG](https://github.com/oneal2000/PRAG)).
 
 #### Download Datasets
 <details>
@@ -71,7 +71,7 @@ wget -P data/hotpotqa/ http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_dev_distr
     popd
     ```
 
-2. Use Elasticsearch to index the Wikipedia dump
+2. Use Elasticsearch to index the Wikipedia dump:
 
     ```bash
     cd data
@@ -82,6 +82,15 @@ wget -P data/hotpotqa/ http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_dev_distr
     nohup bin/elasticsearch &  # run Elasticsearch in background
     cd ../..
     python prep_elastic.py --data_path data/dpr/psgs_w100.tsv --index_name wiki  # build index
+    ```
+
+3. Run the following command to retrieve passages for each dataset:
+
+    ```bash
+    python src/prepare.py --dataset popqa --topk 10
+    python src/prepare.py --dataset complexwebquestions --topk 10
+    python src/prepare.py --dataset 2wikimultihopqa --topk 10
+    python src/prepare.py --dataset hotpotqa --topk 10
     ```
 
 

@@ -39,9 +39,12 @@ if __name__ == "__main__":
     if args.further_type == 'cf_noise':
         datasetnames = ['confiqa-qa', 'confiqa-mc', 'confiqa-mr']
     elif args.further_type == 'gold':
-        datasetnames = ['2wiki-bridge', '2wiki-comparison', '2wiki-compositional', '2wiki-inference', 'hotpotqa-bridge', 'hotpotqa-comparison']
+        datasetnames = ['2wikimultihopqa-bridge', '2wikimultihopqa-comparison', '2wikimultihopqa-compositional', '2wikimultihopqa-inference',
+                         'hotpotqa-bridge', 'hotpotqa-comparison']
     else:
-        datasetnames = ['2wiki-bridge', '2wiki-comparison', '2wiki-compositional', '2wiki-inference', 'cwq', 'hotpotqa-bridge', 'hotpotqa-comparison', 'popqa']
+        datasetnames = ['2wikimultihopqa-bridge', '2wikimultihopqa-comparison', '2wikimultihopqa-compositional', '2wikimultihopqa-inference',
+                         'complexwebquestions', 'hotpotqa-bridge', 'hotpotqa-comparison', 'popqa']
+
     
     for filename, data in data_list:  # deal with each file
         filename = filename.split(".")[0]
