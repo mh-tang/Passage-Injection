@@ -95,16 +95,25 @@ wget -P data/hotpotqa/ http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_dev_distr
 
 
 ### Run Passage Injection
+This step runs Passage Injection and other RAG baselines using the specified model (models are expected to be placed under the `models/` directory).
 
 ```bash
+# generates predictions for multiple RAG methods
 python src/inference.py --model_name Qwen3-32B --topk 5
 
+# calculates metrics for the predictions
 python src/evaluate.py --model_name Qwen3-32B --topk 5
 ```
 
+Below are commands for additional experiments. The `--further_type` argument controls the type of injected passages:
+- `random_noise`: inject random irrelevant passages
+- `cf_noise`: inject counterfactual noisy passages
+- `gold`: inject gold (ground-truth) passages
 
 ```bash
+# generates predictions with random noise
 python src/infer_further.py --model_name Qwen3-32B --further_type random_noise
 
+# calculates metrics for the predictions
 python src/evaluate.py --model_name Qwen3-32B --further_type random_noise
 ```
