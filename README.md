@@ -3,7 +3,7 @@
 
 Welcome to the Official Repository of Passage Injection!
 
-This repository contains the code, datasets, and models used in our paper: [Injecting External Knowledge into the Reasoning Process Enhances Retrieval-Augmented Generation](https://arxiv.org/abs/2507.19333).
+This repository contains the code, datasets, and models used in our paper: [Injecting External Knowledge into the Reasoning Process Enhances Retrieval-Augmented Generation](https://arxiv.org/abs/2507.19333) (SIGIR-AP 2025).
 
 Passage Injection is a simple yet effective method that explicitly incorporates retrieved passages into LLMs' reasoning process to enhance robustness against noisy information and improve RAG performance.
 
